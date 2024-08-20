@@ -1,43 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Formulário Vetores</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Média e Contar Elementos</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Usando vetores</h1>
-
-  <form id="formulario">
-
-    <label for="valor">Digite um valor:</label>
-    <input type="text" id="valor"><br>
-    <button type="button" id="add-btn" onclick="adicionarValor()">Adicionar Valor</button>
-	
-    <table id="tabelaValores">
-      <thead>
-        <tr>
-          <th>Valores</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-
-    <button type="button" id="par-btn" onclick="mostrarPares()">Mostrar números pares</button>
-
-    <table id="tabelaPares">
-      <thead>
-        <tr>
-          <th>Números Pares</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-	
-  </form>
-  <script src="js/script.js"></script>
+    <h1>Calcular Média e Contar Elementos Maiores</h1>
+    <form id="form">
+        <label for="vetor">Digite os números separados por vírgula:</label>
+        <input type="text" id="vetor" placeholder="Ex: 10, 20, 30, 40, 50">
+        <button type="button" id="calcular">Calcular</button>
+    </form>
+    <div id="resultado" class="hidden">
+        <p id="media">Média: </p>
+        <p id="contagem">Número de elementos maiores que a média: </p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

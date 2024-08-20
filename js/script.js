@@ -1,29 +1,25 @@
-let vetor = [];
+document.getElementById('calcular').addEventListener('click', () => {
+    const input = document.getElementById('vetor').value;
+    const numeros = input.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
 
-function adicionarValor() {
-  const valor = Number(document.getElementById('valor').value);
-  vetor.push(valor);
-
-  const tabela = document.getElementById('tabelaValores').getElementsByTagName('tbody')[0];
-  const novaLinha = tabela.insertRow();
-  const celula = novaLinha.insertCell(0);
-  celula.textContent = valor;
-
-  document.getElementById('valor').value = '';
-}
-
-function mostrarPares() {
-  const tabela = document.getElementById("tabelaPares").getElementsByTagName("tbody")[0];
-  
-  // Limpa a tabela antes de adicionar novos valores
-  tabela.innerHTML = '';
-
-  for (let i = 0; i < vetor.length; i++) {
-    const valor = vetor[i];
-    if (valor % 2 === 0) {
-      const linha = tabela.insertRow();
-      const celula = linha.insertCell();
-      celula.textContent = valor;
+    if (numeros.length === 0) {
+        alert('Por favor, insira números válidos.');
+        return;
     }
-  }
-}
+
+    // Calcular a soma dos elementos
+    const soma = numeros.reduce((acc, val) => acc + val, 0);
+
+    // Calcular a média
+    const media = soma / numeros.length;
+
+    // Contar elementos maiores que a média
+    const contagemMaiores = numeros.filter(valor => valor > media).length;
+
+    // Mostrar os resultados
+    document.getElementById('media').textContent = `Média: ${media.toFixed(2)}`;
+    document.getElementById('contagem').textContent = `Número de elementos maiores que a média: ${contagemMaiores}`;
+
+    // Exibir a seção de resultados
+    document.getElementById('resultado').classList.remove('hidden');
+});
